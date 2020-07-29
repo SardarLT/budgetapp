@@ -254,14 +254,15 @@ let nodeListForEach = function (list, cb) {
     },
 
     changedType: function() {
-      var fields = querySelectorAll(
+      var fields = document.querySelectorAll(
         DOMstrings.inputType + ',' +
         DOMstrings.inputDescription + ',' +
         DOMstrings.inputValue
-      )
-      nodeListForEach(fields, function(current) {
+      );
+      nodeListForEach(fields, function(current, index) {
         current.classList.toggle('red-focus')
       })
+      document.querySelector(DOMstrings.inputBtn).classList.toggle('red')
     },
 
     getDOMstrings: function () {
